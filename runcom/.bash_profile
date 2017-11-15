@@ -1,7 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
 # Load the shell dotfiles
 for file in ~/.{env,alias,prompt,function}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -33,7 +29,3 @@ fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

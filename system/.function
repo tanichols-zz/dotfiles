@@ -5,11 +5,6 @@ function mkd() {
   mkdir -p "$@" && cd "$_";
 }
 
-# Open man page as PDF
-function manpdf() {
- man -t "${1}" | open -f -a /Applications/Preview.app/
-}
-
 function lab() {
   port=$(jot -r 1  201 235)
   ssh "${1}"@157.201.194.$port -p 215

@@ -62,7 +62,7 @@ function __node {
   if hash node 2>/dev/null; then
     local v=$(node -v)
   fi
-  [ "$v" != "" ] && echo "n:${v:1}"
+  [ "$v" != "v9.4.0" ] && echo "${1}${2}n:${v:1}"
 }
 
 tput sgr0;
@@ -77,27 +77,12 @@ purple=$(tput setaf 5);
 cyan=$(tput setaf 6);
 white=$(tput setaf 7);
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-  userStyle="${bold}${red}";
-else
-  userStyle="${red}";
-fi;
-
-# Highlight the hostname when connected via SSH.
-if [[ "${SSH_TTY}" ]]; then
-  hostStyle="${bold}${red}";
-else
-  hostStyle="${yellow}";
-fi;
-
 # Set the terminal title and prompt.
-PS1="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] at ";
-PS1+="\[${hostStyle}\]\h"; # host
+PS1="\[${red}\]\u@\h"; # username@host
 PS1+="\[${white}\] in ";
-PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${purple}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+="\[${blue}\]\w"; # working directory full path
+PS1+="\$(prompt_git \"\[${white}\] on \[${yellow}\]\" \"\[${purple}\]\")"; # Git repository details
+PS1+="\$(__node \"\[${white}\] using \[${green}\]\")";
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;

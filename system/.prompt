@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+node_version="v9.4.0"
 
-# Shell prompt based on the Solarized Light theme.
 
+# Shell prompt based on Base16 terminal
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -62,7 +63,7 @@ function __node {
   if hash node 2>/dev/null; then
     local v=$(node -v)
   fi
-  [ "$v" != "v9.4.0" ] && echo "${1}${2}n:${v:1}"
+  [ "$v" != ${node_version} ] && echo "${1}${2}node:${v:1}"
 }
 
 tput sgr0;
@@ -78,13 +79,11 @@ cyan=$(tput setaf 6);
 white=$(tput setaf 7);
 
 # Set the terminal title and prompt.
-PS1="\[${red}\]\u@\h"; # username@host
-PS1+="\[${white}\] in ";
-PS1+="\[${blue}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${yellow}\]\" \"\[${purple}\]\")"; # Git repository details
-PS1+="\$(__node \"\[${white}\] using \[${green}\]\")";
-PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+PS1="\[${purple}\]\u@\h"; # username@host
+PS1+="\[${white}\] in \[${blue}\]\w"; # working directory full path";
+PS1+="\$(prompt_git \"\[${white}\] on \[${yellow}\]\" \"\[${red}\]\")"; # Git repository details
+PS1+="\$(__node \"\[${white}\] using \[${green}\]\")"; # nvm details
+PS1+="\n\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";

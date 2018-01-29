@@ -36,8 +36,12 @@
 ehthumbs.db
 Thumbs.db
 
-# Sublime Text files #
-#####################
+# Sublime Text #
+################
 *.sublime-project
 *.sublime-workspace
 sftp-config.json
+
+# Visual Studio Code #
+######################
+.vscode/

@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Create a new directory and enter it
-function mkd() {
-  mkdir -p "$@" && cd "$_";
-}
-
 function lab() {
   port=$(jot -r 1  201 235)
   ssh "${1}"@157.201.194.$port -p 215

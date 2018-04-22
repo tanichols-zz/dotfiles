@@ -28,8 +28,6 @@
   untracked = cyan
 
 # Use `origin` as the default remote on the `master` branch in all cases
-[credential]
-	helper = osxkeychain
 [core]
 	excludesfile = ~/.gitignore_global
 [user]

@@ -17,6 +17,5 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 
 # System symlinks
 ln -sfv "$DOTFILES_DIR/system/.alias" ~
-ln -sfv "$DOTFILES_DIR/system/.function" ~
 ln -sfv "$DOTFILES_DIR/system/.env" ~
 ln -sfv "$DOTFILES_DIR/system/.prompt" ~

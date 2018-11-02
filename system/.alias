@@ -20,21 +20,5 @@ alias lsd="ls -lFG | grep --color=never '^d'"
 # Always use color output for `ls`
 alias ls="command ls -G"
 
-# Always use color output for 'tree', ignore .git, node_modules, and bower_components
-alias tree="tree -aC -I '.git|node_modules|bower_components' --dirsfirst | less -FRNX"
-
-# Always enable colored `grep` output
-# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g;'
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
